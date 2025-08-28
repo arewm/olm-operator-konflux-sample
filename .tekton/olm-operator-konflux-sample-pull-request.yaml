@@ -620,6 +620,7 @@ spec:
         - name: platform
           value:
           - $(params.build-platforms)
+          - hidden
       params:
       - name: image-url
         value: $(tasks.build-image-index.results.IMAGE_URL)
