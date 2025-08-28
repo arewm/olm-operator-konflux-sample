@@ -123,6 +123,7 @@ spec:
       value: $(tasks.clone-repository.results.commit)
     tasks:
     - name: init
+      displayName: "useless task"
       params:
       - name: image-url
         value: $(params.output-image)
@@ -140,6 +141,7 @@ spec:
           value: task
         resolver: bundles
     - name: clone-repository
+      displayName: "clone repository contents"
       params:
       - name: url
         value: $(params.git-url)
@@ -274,6 +276,7 @@ spec:
         values:
         - "true"
     - name: build-source-image
+      displayName: task to build source image
       params:
       - name: BINARY_IMAGE
         value: $(tasks.build-image-index.results.IMAGE_URL)
