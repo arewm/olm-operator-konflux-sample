@@ -661,6 +661,10 @@ spec:
         - name: platform
           value:
           - $(params.build-platforms)
+        - name: additional-parameter
+          value:
+          - blah
+          - blip
       runAfter:
       - clone-repository
       taskSpec:
@@ -682,6 +686,35 @@ spec:
         operator: in
         values:
         - "false"
+    - name: three-parameteter
+      matrix:
+        params:
+        - name: env-type
+          value:
+          - development
+        - name: platform
+          value:
+          - one
+        - name: additional-parameter
+          value:
+          - blah
+          - blip
+      runAfter:
+      - clone-repository
+      taskSpec:
+        params:
+        - name: env-type
+          type: string
+        - name: platform
+          type: string
+        steps:
+        - name: echo-parameters
+          image: registry.access.redhat.com/ubi9/ubi-minimal:latest
+          script: |
+            #!/bin/bash
+            echo "Running validation for environment: $(params.env-type)"
+            echo "Platform: $(params.platform)"
+            echo "Validation completed successfully"
     - name: new-task-2
       displayName: "no-op task"
       params:
