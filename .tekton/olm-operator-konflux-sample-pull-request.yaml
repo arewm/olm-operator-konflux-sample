@@ -171,6 +171,7 @@ spec:
       - name: basic-auth
         workspace: git-auth
     - name: prefetch-dependencies
+      displayName: "prefetch required dependencies"
       params:
       - name: input
         value: $(params.prefetch-input)
@@ -247,6 +248,7 @@ spec:
         values:
         - "true"
     - name: build-image-index
+      displayName: "really long task display name to see what it looks like"
       params:
       - name: IMAGE
         value: $(params.output-image)
